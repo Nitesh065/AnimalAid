@@ -18,10 +18,10 @@
 <div class="contain">
             
         
-   <a href="collection.jsp">View Donation</a><br>
+   <a href="ViewDonation">View Donation</a><br>
    <a href="Remove.jsp">Remove Medicine</a><br>
    <a href="ShowImage">View Image</a><br>
-   <a href="DeletePrescription.jsp">Remove Image</a><br>
+   <a href="RemoveImage.jsp">Remove Image</a><br>
    <a href="index.jsp">LogOut</a>
         </div>
     </pre>
