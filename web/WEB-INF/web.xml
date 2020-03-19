@@ -24,6 +24,10 @@
         <servlet-name>ViewImage</servlet-name>
         <servlet-class>mypakge.ViewImage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Donate</servlet-name>
+        <servlet-class>mypakge.Donate</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registration</servlet-name>
         <url-pattern>/Registration</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ViewImage</servlet-name>
         <url-pattern>/ViewImage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Donate</servlet-name>
+        <url-pattern>/Donate</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
