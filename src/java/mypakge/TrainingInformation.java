@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -16,42 +15,43 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class RemoveImage extends HttpServlet {
+public class TrainingInformation extends HttpServlet {
+
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       PrintWriter out = response.getWriter();
-       Connection con = mypakge.Connect.connect();
-       String qr = "SELECT * from Image where imgid = '?'";
+           PrintWriter out = response.getWriter();
+           Connection con = mypakge.Connect.connect();
+           java.util.Date dt = new java.util.Date();
+           long time  = dt.getTime();
+           java.sql.Date postdate = new java.sql.Date(time);
         try {
-            Statement  ps = con.createStatement();
-            String id = request.getParameter("id");
-            ResultSet rs = ps.executeQuery(qr);
-            //boolean b = rs.next();
-            //if(b){
-                rs.first();
-                rs.deleteRow();
-                out.println("Image is deleted");
-            //}
-            //else{
-               // out.println("<a href = RemoveImage.jsp>Tyr again</a>");
-            //}
-            /*
-            out.println("<html>");
-            out.println("<body>");
-            out.println("<h2>Image is deleted</h2>");
-            out.println("<a href = RemoveImage.jsp>Remove more image</a> ");
-            out.println("</body>");
-            out.println("</html>");*/
-            }
-
-            
+           PreparedStatement ps = con.prepareStatement("select max(notice_id) from notice");
+           ResultSet rs = ps.executeQuery();
+           rs.next();
+           int lastid = rs.getInt(1);
+           int newid = 100;
+           if(lastid!=0)
+           {
+               newid = lastid+1;
+           }
            
-           
-         catch (SQLException e) {
+           PreparedStatement ps1 = con.prepareStatement("insert into notice values(?,?,?,?)");
+           String title = request.getParameter("title");
+           String information = request.getParameter("information");
+           ps1.setInt(1,newid);
+           ps1.setString(2,title);
+           ps1.setString(3, information);
+           ps1.setDate(4, postdate);
+           ps1.executeUpdate();
+        } catch (Exception e) {
             out.println(e);
         }
-         
+        
+        
+        
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

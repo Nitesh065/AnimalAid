@@ -40,6 +40,10 @@
         <servlet-name>RemoveImage</servlet-name>
         <servlet-class>mypakge.RemoveImage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TrainingInformation</servlet-name>
+        <servlet-class>mypakge.TrainingInformation</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Registration</servlet-name>
         <url-pattern>/Registration</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>RemoveImage</servlet-name>
         <url-pattern>/RemoveImage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TrainingInformation</servlet-name>
+        <url-pattern>/TrainingInformation</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

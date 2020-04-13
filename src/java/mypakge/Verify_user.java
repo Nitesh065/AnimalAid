@@ -48,6 +48,7 @@ public class Verify_user extends HttpServlet {
             if(s1.equals("admin") && s2.equals("animalaid")){
                 response.sendRedirect("admin.jsp");
             }
+            
             else{
                 out.println("Invalid admin");
                 out.println("<a href=Login.jsp>Try Again</a>");

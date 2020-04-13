@@ -14,7 +14,7 @@
                     <a href="index.jsp">Home</a>
                     <a href="Donate.jsp">Donate</a>
                     <a href="Blogs.jsp">ABOUT US</a>
-                    <a href="Blogs.jsp">TRANING</a>
+                    <a href="Traning.jsp">Training</a>
                     <a href="Login.jsp">Login</a>
                     
                 </div>
